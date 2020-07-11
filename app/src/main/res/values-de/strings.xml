@@ -18,4 +18,10 @@
     <string name="einstellung">Einstellung</string>
     <string name="einstellung_verwerfen">Änderung verworfen</string>
     <string name="einstellung_gespeichert">Änderung gespeichert</string>
+    <string name="abbrechen">Abbrechen</string>
+    <string name="termin_titel">Termin Titel</string>
+    <string name="schicht_stellwerk">Schicht/Stellwerk</string>
+    <string name="stellwerk_schicht">Stellwerk/Schicht</string>
+    <string name="speichern">Speichern</string>
+    <string name="einstellungen">Einstellungen</string>
 </resources>

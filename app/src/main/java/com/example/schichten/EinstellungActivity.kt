@@ -11,12 +11,12 @@ class EinstellungActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_einstellung)
-        supportActionBar?.setTitle(getString(einstellung))
+        supportActionBar?.title = getString(einstellung)
 
         //ohne speichern zurück
         buAbbrechen.setOnClickListener {
-            val zurück = Intent(this, MainActivity::class.java)
-            startActivity(zurück)
+            val zurueck = Intent(this, MainActivity::class.java)
+            startActivity(zurueck)
             Toast.makeText(this, getString(einstellung_verwerfen),Toast.LENGTH_SHORT).show()
         }
 

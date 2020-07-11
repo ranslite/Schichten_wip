@@ -92,9 +92,9 @@
                 android:id="@+id/rbNienburg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/nienburg"
                 android:layout_margin="2dp"
-                android:textSize="20sp"/>
+                android:text="@string/nienburg"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/rbRohrsen"
@@ -105,7 +105,7 @@
                 android:textSize="20sp" />
 
             <RadioButton
-                android:id="@+id/rbEytrup"
+                android:id="@+id/rbEystrup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -131,19 +131,23 @@
 
         <ImageButton
             android:id="@+id/buEinstellung"
-            android:layout_width="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:contentDescription="@string/einstellungen"
             app:srcCompat="@android:drawable/ic_menu_manage" />
     </LinearLayout>
 
     <Button
         android:id="@+id/buEintragen"
+        style="?android:attr/buttonBarButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:text="@string/eintragen"
         android:textAllCaps="false"
+        android:textColor="@android:color/background_dark"
         android:textSize="24sp" />
 
 </LinearLayout>
