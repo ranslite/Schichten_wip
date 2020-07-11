@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <CalendarView
+        android:id="@+id/cvKalender"
+        android:layout_width="match_parent"
+        android:layout_height="315dp"
+        android:firstDayOfWeek="2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:id="@+id/rgSchicht"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rbFrueh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:checked="true"
+                android:text="@string/frueh"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/rbSpaet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="@string/spaet"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/rbNacht"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="@string/nacht"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/rbFruehNacht"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="@string/frueh_nacht"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/rbLangerTag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="@string/langer_tag"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/rbLangeNacht"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="@string/lange_nacht"
+                android:textSize="20sp" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/rgStellwerk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rbLinsburg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:checked="true"
+                android:text="@string/linsburg"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/rbNienburg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nienburg"
+                android:layout_margin="2dp"
+                android:textSize="20sp"/>
+
+            <RadioButton
+                android:id="@+id/rbRohrsen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="@string/rohrsen"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/rbEytrup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="@string/eystrup"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/rbDoerverden"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="@string/d_rverden"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/rbVerden"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="@string/verden"
+                android:textSize="20sp" />
+        </RadioGroup>
+
+        <ImageButton
+            android:id="@+id/buEinstellung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@android:drawable/ic_menu_manage" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buEintragen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/eintragen"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+</LinearLayout>

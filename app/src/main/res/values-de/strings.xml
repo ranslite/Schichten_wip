@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Schichten</string>
+    <string name="frueh">Früh</string>
+    <string name="spaet">Spät</string>
+    <string name="nacht">Nacht</string>
+    <string name="frueh_nacht">Früh/Nacht</string>
+    <string name="langer_tag">Langer Tag</string>
+    <string name="lange_nacht">Lange Nacht</string>
+    <string name="linsburg">Linsburg</string>
+    <string name="nienburg">Nienburg</string>
+    <string name="rohrsen">Rohrsen</string>
+    <string name="eystrup">Eystrup</string>
+    <string name="d_rverden">Dörverden</string>
+    <string name="verden">Verden</string>
+    <string name="eintragen">Eintragen</string>
+    <string name="error">Irgendwas ging schief</string>
+</resources>

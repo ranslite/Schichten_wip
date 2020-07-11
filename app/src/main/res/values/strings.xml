@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Schichten</string>
+    <string name="frueh">Früh</string>
+    <string name="spaet">Spät</string>
+    <string name="nacht">Nacht</string>
+    <string name="frueh_nacht">Früh/Nacht</string>
+    <string name="langer_tag">Langer Tag</string>
+    <string name="lange_nacht">Lange Nacht</string>
+    <string name="linsburg">Linsburg</string>
+    <string name="nienburg">Nienburg</string>
+    <string name="rohrsen">Rohrsen</string>
+    <string name="eystrup">Eystrup</string>
+    <string name="d_rverden">Dörverden</string>
+    <string name="verden">Verden</string>
+    <string name="eintragen">Eintragen</string>
+    <string name="error">Irgendwas ging schief</string>
+    <string name="title_activity_einstellung">EinstellungActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+</resources>
