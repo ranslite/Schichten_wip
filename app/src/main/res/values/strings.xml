@@ -30,4 +30,7 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="einstellung">Einstellung</string>
+    <string name="einstellung_verwerfen">Änderung verworfen</string>
+    <string name="einstellung_gespeichert">Änderung gespeichert</string>
 </resources>

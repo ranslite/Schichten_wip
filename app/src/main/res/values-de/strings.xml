@@ -15,4 +15,7 @@
     <string name="verden">Verden</string>
     <string name="eintragen">Eintragen</string>
     <string name="error">Irgendwas ging schief</string>
+    <string name="einstellung">Einstellung</string>
+    <string name="einstellung_verwerfen">Änderung verworfen</string>
+    <string name="einstellung_gespeichert">Änderung gespeichert</string>
 </resources>
