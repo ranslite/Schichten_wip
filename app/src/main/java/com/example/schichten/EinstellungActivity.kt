@@ -17,11 +17,8 @@ class EinstellungActivity : AppCompatActivity() {
         //Variablen für Einstellungen
         val speicher = getSharedPreferences(getString(setting), Context.MODE_PRIVATE)
         //Reinfolge 0 = Schicht/Stellwerk; 1 = Stellwerk/Schicht
-        var titelReinfolge : Int
-
-
         //Einstellung laden, ggf erzeugen
-            val saveReinfolge  = if (speicher.contains(getString(reinfolge))) speicher.getInt(getString(
+            @Suppress("IMPLICIT_CAST_TO_ANY", "ControlFlowWithEmptyBody") val saveReinfolge  = if (speicher.contains(getString(reinfolge))) speicher.getInt(getString(
                 reinfolge), 0) else{}
             if (saveReinfolge == 0) rbSchicht.isChecked = true
             else rbStellwerk.isChecked = true
@@ -35,8 +32,7 @@ class EinstellungActivity : AppCompatActivity() {
         //speichern und zurück
         buSpeichern.setOnClickListener {
             try {
-                var auswahlSchichtStellwerk : Int
-                if (rbSchicht.isChecked) auswahlSchichtStellwerk = 0 else auswahlSchichtStellwerk = 1
+                val auswahlSchichtStellwerk = if (rbSchicht.isChecked) 0 else 1
                 try {
                     val schreiber = speicher.edit()
                     schreiber.putInt(getString(reinfolge),auswahlSchichtStellwerk)

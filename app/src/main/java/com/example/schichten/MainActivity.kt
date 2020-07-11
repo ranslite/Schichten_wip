@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
             val rbSchicht = findViewById<RadioButton>(idSchicht)
             val idStellwerk = rgStellwerk.checkedRadioButtonId
             val rbStellwerk = findViewById<RadioButton>(idStellwerk)
-            var titel:String
+            val titel:String
 
             if (titelAuswahl == 0) {
                 //Termintitel aus Schicht und Stellwerk erzeugen
