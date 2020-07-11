@@ -24,4 +24,8 @@
     <string name="stellwerk_schicht">Stellwerk/Schicht</string>
     <string name="speichern">Speichern</string>
     <string name="einstellungen">Einstellungen</string>
+    <string name="setting">setting.cfg</string>
+    <string name="reinfolge">Reinfolge</string>
+    <string name="langwedel">Langwedel</string>
+    <string name="achim">Achim</string>
 </resources>

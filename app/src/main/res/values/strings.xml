@@ -15,12 +15,6 @@
     <string name="eintragen">Eintragen</string>
     <string name="error">Irgendwas ging schief</string>
     <string name="title_activity_einstellung" translatable="false">EinstellungActivity</string>
-
-    <!-- Preference Titles -->
-
-    <!-- Messages Preferences -->
-
-    <!-- Sync Preferences -->
     <string name="einstellung">Einstellung</string>
     <string name="einstellung_verwerfen">Änderung verworfen</string>
     <string name="einstellung_gespeichert">Änderung gespeichert</string>
@@ -30,4 +24,8 @@
     <string name="speichern">Speichern</string>
     <string name="abbrechen">Abbrechen</string>
     <string name="einstellungen">Einstellungen</string>
+    <string name="setting">setting.cfg</string>
+    <string name="reinfolge">Reinfolge</string>
+    <string name="langwedel">Langwedel</string>
+    <string name="achim">Achim</string>
 </resources>

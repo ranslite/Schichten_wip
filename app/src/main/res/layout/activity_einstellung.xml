@@ -17,11 +17,13 @@
         android:textStyle="bold" />
 
     <RadioGroup
+        android:id="@+id/rgSchichtStellwerk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <RadioButton
+            android:id="@+id/rbSchicht"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
@@ -29,6 +31,7 @@
             android:textSize="20sp" />
 
         <RadioButton
+            android:id="@+id/rbStellwerk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
