@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.provider.CalendarContract
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.WindowManager.*
+import android.view.WindowManager.LayoutParams
 import android.widget.CalendarView
 import android.widget.RadioButton
 import android.widget.Toast

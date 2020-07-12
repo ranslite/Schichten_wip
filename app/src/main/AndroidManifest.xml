@@ -10,10 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UeberActivity"></activity>
+        <activity android:name=".UeberActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".EinstellungActivity"
-            android:label="@string/title_activity_einstellung" />
+            android:label="@string/title_activity_einstellung"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
