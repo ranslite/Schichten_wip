@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.provider.CalendarContract
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.widget.CalendarView
 import android.widget.RadioButton
 import android.widget.Toast
@@ -18,22 +20,41 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //Zugriff auf Einstellungen setting.cfg
+        //Zugriff auf Einstellungen in setting.cfg
         val speicher = getSharedPreferences(getString(setting), Context.MODE_PRIVATE)
 
 
         //Einstellung laden, ggf erzeugen
         //Reinfolge 0 = Schicht/Stellwerk; 1 = Stellwerk/Schicht
+        //Stellwerke anzeigen 0 = nein; 1 = ja
         if (speicher.contains(getString(reinfolge))) speicher.getInt(getString(reinfolge), 0)
 
         else {
             //Wenn keine Einstellungsdatei existiert, eine erstellen und Grundeinstellung schreiben
             val schreiber = speicher.edit()
             schreiber.putInt(getString(reinfolge),0)
+            schreiber.putInt(getString(linsburg),1)
+            schreiber.putInt(getString(nienburg),1)
+            schreiber.putInt(getString(rohrsen),1)
+            schreiber.putInt(getString(eystrup),1)
+            schreiber.putInt(getString(d_rverden),1)
+            schreiber.putInt(getString(verden),1)
+            schreiber.putInt(getString(langwedel),1)
             if (!schreiber.commit()) {
                 Toast.makeText(this, error,Toast.LENGTH_SHORT).show()
                 }
             }
+
+        //Stellwerksbutton ein- und ausblenden, je nach Einstellung
+        if (speicher.getInt(getString(linsburg),1) == 0) rbLinsburg.visibility = GONE else rbLinsburg.visibility = VISIBLE
+        if (speicher.getInt(getString(nienburg),1) == 0) rbNienburg.visibility = GONE else rbNienburg.visibility = VISIBLE
+        if (speicher.getInt(getString(rohrsen), 1) == 0) rbRohrsen.visibility = GONE else rbRohrsen.visibility = VISIBLE
+        if (speicher.getInt(getString(eystrup), 1) == 0) rbEystrup.visibility = GONE else rbEystrup.visibility = VISIBLE
+        if (speicher.getInt(getString(d_rverden), 1) == 0) rbDoerverden.visibility = GONE else rbDoerverden.visibility = VISIBLE
+        if (speicher.getInt(getString(verden),1) == 0) rbVerden.visibility = GONE else rbVerden.visibility = VISIBLE
+        if (speicher.getInt(getString(langwedel),1) == 0) rbLangwedel.visibility = GONE else rbLangwedel.visibility = VISIBLE
+
+
 
         val titelAuswahl = if (speicher.contains(getString(reinfolge))) speicher.getInt(getString(reinfolge), 0) else 0
 
@@ -580,72 +601,6 @@ class MainActivity : AppCompatActivity() {
 
                 //Abschnitt Langwedel
                 getString(langwedel) -> {
-                    when (rbSchicht.text as String){
-                        getString(frueh) -> {
-                            kal.set(jahr, monat, tag, 6, 30)
-                            ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
-
-                            kal.set(jahr, monat, tag, 12, 30)
-                            ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
-
-                            startActivity(ev)
-
-                        }
-                        getString(spaet) -> {
-
-                            kal.set(jahr, monat, tag, 12, 30)
-                            ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
-
-                            kal.set(jahr, monat, tag, 20, 30)
-                            ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
-
-                            startActivity(ev)
-
-                        }
-                        getString(nacht) -> {
-
-                            kal.set(jahr, monat, tag, 20, 30)
-                            ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
-
-                            kal.set(jahr, monat, tag + 1, 6, 30)
-                            ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
-
-                            startActivity(ev)
-                        }
-                        getString(frueh_nacht) -> {
-
-                            kal.set(jahr, monat, tag, 6, 30)
-                            ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
-
-                            kal.set(jahr, monat, tag + 1, 6, 30)
-                            ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
-
-                            startActivity(ev)
-                        }
-                        getString(langer_tag) -> {
-                            kal.set(jahr, monat, tag, 6, 30)
-                            ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
-
-                            kal.set(jahr, monat, tag, 18, 30)
-                            ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
-
-                            startActivity(ev)
-                        }
-                        getString(lange_nacht) -> {
-                            kal.set(jahr, monat, tag, 18, 30)
-                            ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
-
-                            kal.set(jahr, monat, tag + 1, 6, 30)
-                            ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
-
-                            startActivity(ev)
-                        }
-                        else -> Toast.makeText(this, getString(error), Toast.LENGTH_LONG).show()
-                    }
-                }
-
-                //Abschnitt Achim
-                getString(achim) -> {
                     when (rbSchicht.text as String){
                         getString(frueh) -> {
                             kal.set(jahr, monat, tag, 6, 30)

@@ -14,7 +14,8 @@
         android:textAllCaps="false"
         android:textColor="@android:color/background_dark"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_margin="6dp"/>
 
     <RadioGroup
         android:id="@+id/rgSchichtStellwerk"
@@ -39,6 +40,59 @@
             android:textSize="20sp" />
 
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stellwerke anzeigen"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_margin="6dp"/>
+
+    <CheckBox
+        android:id="@+id/cbLinsburg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/linsburg" />
+
+    <CheckBox
+        android:id="@+id/cbNienburg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/nienburg" />
+
+    <CheckBox
+        android:id="@+id/cbRohrsen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rohrsen" />
+
+    <CheckBox
+        android:id="@+id/cbEystrup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/eystrup" />
+
+    <CheckBox
+        android:id="@+id/cbDoerverden"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/d_rverden" />
+
+    <CheckBox
+        android:id="@+id/cbVerden"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/verden" />
+
+    <CheckBox
+        android:id="@+id/cbLangwedel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/langwedel" />
 
     <LinearLayout
         style="?android:attr/buttonBarStyle"
