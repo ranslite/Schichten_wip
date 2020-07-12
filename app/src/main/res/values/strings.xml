@@ -30,4 +30,5 @@
     <string name="achim">Achim</string>
     <string name="stellwerke_anzeigen">Stellwerke anzeigen</string>
     <string name="ueber">Über</string>
+    <string name="letztesStellwerk">letztes Stellwerk</string>
 </resources>

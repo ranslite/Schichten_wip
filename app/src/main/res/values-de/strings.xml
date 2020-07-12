@@ -31,4 +31,5 @@
     <string name="stellwerke_anzeigen">Stellwerke anzeigen</string>
     <string name="title_activity_einstellung">EinstellungsActivity</string>
     <string name="ueber">Über</string>
+    <string name="letztesStellwerk">letztes Stellwerk</string>
 </resources>

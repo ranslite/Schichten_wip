@@ -20,23 +20,24 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        window.setFlags(
-            LayoutParams.FLAG_FULLSCREEN,
-            LayoutParams.FLAG_FULLSCREEN)
+
+        //Vollbildmodus aktivieren
+        window.setFlags(LayoutParams.FLAG_FULLSCREEN, LayoutParams.FLAG_FULLSCREEN)
         supportActionBar?.hide()
 
         //Zugriff auf Einstellungen in setting.cfg
         val speicher = getSharedPreferences(getString(setting), Context.MODE_PRIVATE)
 
-
         //Einstellung laden, ggf erzeugen
         //Reinfolge 0 = Schicht/Stellwerk; 1 = Stellwerk/Schicht
         //Stellwerke anzeigen 0 = nein; 1 = ja
         if (speicher.contains(getString(reinfolge))) speicher.getInt(getString(reinfolge), 0)
-
         else {
             //Wenn keine Einstellungsdatei existiert, eine erstellen und Grundeinstellung schreiben
+            //Schreibzugriff für die Einstellungen
             val schreiber = speicher.edit()
+
+            //Grundwerte der Einstellungen
             schreiber.putInt(getString(reinfolge),0)
             schreiber.putInt(getString(linsburg),1)
             schreiber.putInt(getString(nienburg),1)
@@ -45,6 +46,7 @@ class MainActivity : AppCompatActivity() {
             schreiber.putInt(getString(d_rverden),1)
             schreiber.putInt(getString(verden),1)
             schreiber.putInt(getString(langwedel),1)
+            schreiber.putInt(getString(letztesStellwerk),1)
             if (!schreiber.commit()) {
                 Toast.makeText(this, error,Toast.LENGTH_SHORT).show()
                 }
@@ -59,8 +61,18 @@ class MainActivity : AppCompatActivity() {
         if (speicher.getInt(getString(verden),1) == 0) rbVerden.visibility = GONE else rbVerden.visibility = VISIBLE
         if (speicher.getInt(getString(langwedel),1) == 0) rbLangwedel.visibility = GONE else rbLangwedel.visibility = VISIBLE
 
+        //zuletzt markiertes Stellwerk markieren
+        when(speicher.getInt(getString(letztesStellwerk),1)){
+            1 -> rbLinsburg.isChecked = true
+            2 -> rbNienburg.isChecked = true
+            3 -> rbRohrsen.isChecked = true
+            4 -> rbEystrup.isChecked = true
+            5 -> rbDoerverden.isChecked = true
+            6 -> rbVerden.isChecked = true
+            7 -> rbLangwedel.isChecked = true
+        }
 
-
+        //Variable für die Reinfolge des Termintitels
         val titelAuswahl = if (speicher.contains(getString(reinfolge))) speicher.getInt(getString(reinfolge), 0) else 0
 
         //Kalenderinstanz erzeugen
@@ -70,7 +82,6 @@ class MainActivity : AppCompatActivity() {
         val sdfJahr = SimpleDateFormat("yyyy", lokal)
         val sdfMonat = SimpleDateFormat("MM", lokal)
         val sdfTag = SimpleDateFormat("dd", lokal)
-
 
         val cvKalender = findViewById<CalendarView>(R.id.cvKalender)
         var jahr:Int = sdfJahr.format(datum).toInt()
@@ -88,7 +99,6 @@ class MainActivity : AppCompatActivity() {
             calendar[year, month] = dayOfMonth
             //Mo=2,Di=3..Sa=7,So=1 O.o
             wochenTag = calendar[Calendar.DAY_OF_WEEK]
-
         }
 
         //Button um Auswahl an den Systemkalender weiterzugeben
@@ -114,7 +124,7 @@ class MainActivity : AppCompatActivity() {
                 ev.putExtra(CalendarContract.Events.TITLE, titel)
             }
 
-            //Umbau Stellwerk -> Schicht -> Flatho
+            //Zeiten für den Termin ermitteln und an den Kalender übergeben
             when (rbStellwerk.text as String){
                 //Abschnitt Linsburg
                 getString(linsburg) -> {
@@ -677,6 +687,31 @@ class MainActivity : AppCompatActivity() {
             //Einstellungsactivity aufrufen
             val einstellung = Intent(this, EinstellungActivity::class.java)
             startActivity(einstellung)
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        //Zugriff auf Einstellungen in setting.cfg
+        val speicher = getSharedPreferences(getString(setting), Context.MODE_PRIVATE)
+
+        //Schreibzugriff auf setting.cfg
+        val schreiber = speicher.edit()
+
+        //zuletzt markiertes Stellwerk speichern
+        val idStellwerk = rgStellwerk.checkedRadioButtonId
+        when(findViewById<RadioButton>(idStellwerk)){
+            rbLinsburg -> schreiber.putInt(getString(letztesStellwerk), 1)
+            rbNienburg -> schreiber.putInt(getString(letztesStellwerk), 2)
+            rbRohrsen -> schreiber.putInt(getString(letztesStellwerk), 3)
+            rbEystrup -> schreiber.putInt(getString(letztesStellwerk), 4)
+            rbDoerverden -> schreiber.putInt(getString(letztesStellwerk), 5)
+            rbVerden -> schreiber.putInt(getString(letztesStellwerk), 6)
+            rbLangwedel -> schreiber.putInt(getString(letztesStellwerk), 7)
+        }
+        if (!schreiber.commit()) {
+            Toast.makeText(this, error,Toast.LENGTH_SHORT).show()
         }
     }
 }
