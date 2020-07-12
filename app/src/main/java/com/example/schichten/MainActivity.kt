@@ -10,6 +10,7 @@ import android.view.WindowManager.*
 import android.widget.CalendarView
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.schichten.R.string.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,6 +28,12 @@ class MainActivity : AppCompatActivity() {
 
         //Zugriff auf Einstellungen in setting.cfg
         val speicher = getSharedPreferences(getString(setting), Context.MODE_PRIVATE)
+
+        //Einstellungsseite
+        val einstellung = Intent(this, EinstellungActivity::class.java)
+
+        //Überseite
+        val ueber = Intent(this,UeberActivity::class.java)
 
         //Einstellung laden, ggf erzeugen
         //Reinfolge 0 = Schicht/Stellwerk; 1 = Stellwerk/Schicht
@@ -52,15 +59,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-        //Stellwerksbutton ein- und ausblenden, je nach Einstellung
-        if (speicher.getInt(getString(linsburg),1) == 0) rbLinsburg.visibility = GONE else rbLinsburg.visibility = VISIBLE
-        if (speicher.getInt(getString(nienburg),1) == 0) rbNienburg.visibility = GONE else rbNienburg.visibility = VISIBLE
-        if (speicher.getInt(getString(rohrsen), 1) == 0) rbRohrsen.visibility = GONE else rbRohrsen.visibility = VISIBLE
-        if (speicher.getInt(getString(eystrup), 1) == 0) rbEystrup.visibility = GONE else rbEystrup.visibility = VISIBLE
-        if (speicher.getInt(getString(d_rverden), 1) == 0) rbDoerverden.visibility = GONE else rbDoerverden.visibility = VISIBLE
-        if (speicher.getInt(getString(verden),1) == 0) rbVerden.visibility = GONE else rbVerden.visibility = VISIBLE
-        if (speicher.getInt(getString(langwedel),1) == 0) rbLangwedel.visibility = GONE else rbLangwedel.visibility = VISIBLE
-
         //zuletzt markiertes Stellwerk markieren
         when(speicher.getInt(getString(letztesStellwerk),1)){
             1 -> rbLinsburg.isChecked = true
@@ -70,6 +68,39 @@ class MainActivity : AppCompatActivity() {
             5 -> rbDoerverden.isChecked = true
             6 -> rbVerden.isChecked = true
             7 -> rbLangwedel.isChecked = true
+        }
+
+        //Stellwerksbutton ein- und ausblenden, je nach Einstellung
+        if (speicher.getInt(getString(linsburg),1) == 0) rbLinsburg.visibility = GONE else rbLinsburg.visibility = VISIBLE
+        if (speicher.getInt(getString(nienburg),1) == 0) rbNienburg.visibility = GONE else rbNienburg.visibility = VISIBLE
+        if (speicher.getInt(getString(rohrsen), 1) == 0) rbRohrsen.visibility = GONE else rbRohrsen.visibility = VISIBLE
+        if (speicher.getInt(getString(eystrup), 1) == 0) rbEystrup.visibility = GONE else rbEystrup.visibility = VISIBLE
+        if (speicher.getInt(getString(d_rverden), 1) == 0) rbDoerverden.visibility = GONE else rbDoerverden.visibility = VISIBLE
+        if (speicher.getInt(getString(verden),1) == 0) rbVerden.visibility = GONE else rbVerden.visibility = VISIBLE
+        if (speicher.getInt(getString(langwedel),1) == 0) rbLangwedel.visibility = GONE else rbLangwedel.visibility = VISIBLE
+
+        //ausgeblendete Stellwerke nicht markieren
+        val idStellwerkAusGe = rgStellwerk.checkedRadioButtonId
+        val rbStellwerkAusGe = findViewById<RadioButton>(idStellwerkAusGe)
+        if (rbStellwerkAusGe.visibility == GONE && rbStellwerkAusGe.isChecked) {
+            when {
+                rbLinsburg.visibility == VISIBLE -> rbLinsburg.isChecked = true
+                rbNienburg.visibility == VISIBLE -> rbNienburg.isChecked = true
+                rbRohrsen.visibility == VISIBLE -> rbRohrsen.isChecked = true
+                rbEystrup.visibility == VISIBLE -> rbEystrup.isChecked = true
+                rbDoerverden.visibility == VISIBLE -> rbDoerverden.isChecked = true
+                rbVerden.visibility == VISIBLE -> rbVerden.isChecked = true
+                rbLangwedel.visibility == VISIBLE -> rbLangwedel.isChecked = true
+                //Alle Stellwerke ausgeblendet
+                else -> {
+                    val keinStellwerk = AlertDialog.Builder(this)
+                    keinStellwerk.setMessage(getString(keinStellwerkDialog))
+                    keinStellwerk.setPositiveButton("Ok"){_,_ -> startActivity(einstellung)}
+                    keinStellwerk.show()
+                }
+            }
+
+
         }
 
         //Variable für die Reinfolge des Termintitels
@@ -684,9 +715,13 @@ class MainActivity : AppCompatActivity() {
 
         //Button für die Einstellungen
         buEinstellung.setOnClickListener {
-            //Einstellungsactivity aufrufen
-            val einstellung = Intent(this, EinstellungActivity::class.java)
+            //Einstellungsseite aufrufen
             startActivity(einstellung)
+        }
+
+        buUeber.setOnClickListener {
+            //Überseite aufrufen
+            startActivity(ueber)
         }
     }
 

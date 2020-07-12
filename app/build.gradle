@@ -10,8 +10,8 @@ android {
         applicationId "com.example.schichten"
         minSdkVersion 22
         targetSdkVersion 29
-        versionCode 1
-        versionName "0.5"
+        versionCode 2
+        versionName "0.6"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

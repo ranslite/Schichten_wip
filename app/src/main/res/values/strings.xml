@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Schichten</string>
+    <string name="app_name">Schichten NB Verden</string>
     <string name="frueh">Früh</string>
     <string name="spaet">Spät</string>
     <string name="nacht">Nacht</string>
@@ -31,4 +31,7 @@
     <string name="stellwerke_anzeigen">Stellwerke anzeigen</string>
     <string name="ueber">Über</string>
     <string name="letztesStellwerk">letztes Stellwerk</string>
+    <string name="keinStellwerkDialog">Sie haben alle Stellwerke ausgeblendet</string>
+    <string name="viel_spa_mit_der_app">Viel Spaß mit der App\nFalls jemand Verbesserungsvorschläge\noder Interesse am Quellcode hat,\ndann einfach bei mir melden.\n\n euer Jörg Dittmar </string>
+    <string name="info">Info</string>
 </resources>
