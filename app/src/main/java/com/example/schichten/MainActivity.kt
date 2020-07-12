@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.provider.CalendarContract
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.view.WindowManager.*
 import android.widget.CalendarView
 import android.widget.RadioButton
 import android.widget.Toast
@@ -19,6 +20,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        window.setFlags(
+            LayoutParams.FLAG_FULLSCREEN,
+            LayoutParams.FLAG_FULLSCREEN)
+        supportActionBar?.hide()
 
         //Zugriff auf Einstellungen in setting.cfg
         val speicher = getSharedPreferences(getString(setting), Context.MODE_PRIVATE)

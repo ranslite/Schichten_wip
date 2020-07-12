@@ -45,7 +45,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Stellwerke anzeigen"
+        android:text="@string/stellwerke_anzeigen"
         android:textAlignment="center"
         android:textColor="@android:color/background_dark"
         android:textSize="20sp"

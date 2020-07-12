@@ -28,4 +28,7 @@
     <string name="reinfolge">Reinfolge</string>
     <string name="langwedel">Langwedel</string>
     <string name="achim">Achim</string>
+    <string name="stellwerke_anzeigen">Stellwerke anzeigen</string>
+    <string name="title_activity_einstellung">EinstellungsActivity</string>
+    <string name="ueber">Über</string>
 </resources>
