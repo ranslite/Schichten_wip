@@ -163,20 +163,20 @@ class MainActivity : AppCompatActivity() {
                         getString(frueh) -> {
                             //Abfrage Linsburg Montag(wochenTag==2) Früh Flatho
                             if (wochenTag == 2){
-                                kal.set(jahr, monat, tag, 6, 30)
+                                kal.set(jahr, monat, tag, 7, 0)
                                 ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                                kal.set(jahr, monat, tag, 14, 30)
+                                kal.set(jahr, monat, tag, 15, 0)
                                 ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
                                 startActivity(ev)
                             }
                             else {
                                 //Beginn der normalen Frühschicht
-                                kal.set(jahr, monat, tag, 6, 30)
+                                kal.set(jahr, monat, tag, 7, 0)
                                 ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                                kal.set(jahr, monat, tag, 12, 30)
+                                kal.set(jahr, monat, tag, 13, 0)
                                 ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
                                 startActivity(ev)
@@ -185,59 +185,81 @@ class MainActivity : AppCompatActivity() {
                         getString(spaet) -> {
                             //Abfrage Flatho ablösen
                             if (wochenTag == 2){
-                                kal.set(jahr, monat, tag, 14, 30)
+                                kal.set(jahr, monat, tag, 15, 0)
                                 ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                                kal.set(jahr, monat, tag, 20, 30)
+                                kal.set(jahr, monat, tag, 21, 0)
                                 ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
                                 startActivity(ev)
                             }
-                            else {
-                                //Beginn der normalen Spätschicht
-                                kal.set(jahr, monat, tag, 12, 30)
-                                ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
+                            else
+                                if (wochenTag == 7){
+                                    kal.set(jahr, monat, tag, 13, 0)
+                                    ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                                kal.set(jahr, monat, tag, 20, 30)
-                                ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
+                                    kal.set(jahr, monat, tag, 22, 0)
+                                    ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
-                                startActivity(ev)
-                            }
+                                    startActivity(ev)
+                                }
+                                else
+                                {
+                                    //Beginn der normalen Spätschicht
+                                    kal.set(jahr, monat, tag, 13, 0)
+                                    ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
+
+                                    kal.set(jahr, monat, tag, 21, 0)
+                                    ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
+
+                                    startActivity(ev)
+                                }
                         }
                         getString(nacht) -> {
+                            if (wochenTag == 7){
 
-                            kal.set(jahr, monat, tag, 20, 30)
+                            kal.set(jahr, monat, tag, 22, 0)
                             ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                            kal.set(jahr, monat, tag + 1, 6, 30)
+                            kal.set(jahr, monat, tag + 1, 7, 0)
                             ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
                             startActivity(ev)
+                            }
+                            else{
+                                kal.set(jahr, monat, tag, 21, 0)
+                                ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
+
+                                kal.set(jahr, monat, tag + 1, 7, 0)
+                                ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
+
+                                startActivity(ev)
+                            }
                         }
                         getString(frueh_nacht) -> {
 
-                            kal.set(jahr, monat, tag, 6, 30)
+                            kal.set(jahr, monat, tag, 7, 0)
                             ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                            kal.set(jahr, monat, tag + 1, 6, 30)
+                            kal.set(jahr, monat, tag + 1, 7, 0)
                             ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
                             startActivity(ev)
                         }
                         getString(langer_tag) -> {
-                            kal.set(jahr, monat, tag, 6, 30)
+                            kal.set(jahr, monat, tag, 7, 0)
                             ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                            kal.set(jahr, monat, tag, 18, 30)
+                            kal.set(jahr, monat, tag, 19, 0)
                             ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
                             startActivity(ev)
                         }
                         getString(lange_nacht) -> {
-                            kal.set(jahr, monat, tag, 18, 30)
+                            kal.set(jahr, monat, tag, 19, 0)
                             ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                            kal.set(jahr, monat, tag + 1, 6, 30)
+                            kal.set(jahr, monat, tag + 1, 7, 0)
                             ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
                             startActivity(ev)
@@ -406,35 +428,55 @@ class MainActivity : AppCompatActivity() {
                 getString(eystrup) -> {
                     when (rbSchicht.text as String){
                         getString(frueh) -> {
-                            kal.set(jahr, monat, tag, 6, 30)
+                            kal.set(jahr, monat, tag, 7, 0)
                             ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                            kal.set(jahr, monat, tag, 12, 30)
+                            kal.set(jahr, monat, tag, 13, 0)
                             ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
                             startActivity(ev)
 
                         }
                         getString(spaet) -> {
+                            if (wochenTag == 7){
+                                kal.set(jahr, monat, tag, 13, 0)
+                                ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                            kal.set(jahr, monat, tag, 12, 30)
-                            ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
+                                kal.set(jahr, monat, tag, 20, 0)
+                                ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
-                            kal.set(jahr, monat, tag, 20, 30)
-                            ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
+                                startActivity(ev)
+                            }
+                            else {
+                                kal.set(jahr, monat, tag, 13, 0)
+                                ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                            startActivity(ev)
+                                kal.set(jahr, monat, tag, 21, 0)
+                                ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
+
+                                startActivity(ev)
+                            }
 
                         }
                         getString(nacht) -> {
+                            if(wochenTag == 7){
+                                kal.set(jahr, monat, tag, 20, 0)
+                                ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                            kal.set(jahr, monat, tag, 20, 30)
-                            ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
+                                kal.set(jahr, monat, tag + 1, 7, 0)
+                                ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
-                            kal.set(jahr, monat, tag + 1, 6, 30)
-                            ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
+                                startActivity(ev)
+                            }
+                            else {
+                                kal.set(jahr, monat, tag, 21, 0)
+                                ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                            startActivity(ev)
+                                kal.set(jahr, monat, tag + 1, 7, 0)
+                                ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
+
+                                startActivity(ev)
+                            }
                         }
                         getString(frueh_nacht) -> {
 
@@ -447,19 +489,19 @@ class MainActivity : AppCompatActivity() {
                             startActivity(ev)
                         }
                         getString(langer_tag) -> {
-                            kal.set(jahr, monat, tag, 6, 30)
+                            kal.set(jahr, monat, tag, 7, 0)
                             ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                            kal.set(jahr, monat, tag, 18, 30)
+                            kal.set(jahr, monat, tag, 19, 0)
                             ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
                             startActivity(ev)
                         }
                         getString(lange_nacht) -> {
-                            kal.set(jahr, monat, tag, 18, 30)
+                            kal.set(jahr, monat, tag, 19, 0)
                             ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                            kal.set(jahr, monat, tag + 1, 6, 30)
+                            kal.set(jahr, monat, tag + 1, 7, 0)
                             ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
                             startActivity(ev)
@@ -473,52 +515,72 @@ class MainActivity : AppCompatActivity() {
                     when (rbSchicht.text as String){
                         getString(frueh) -> {
                             if (wochenTag == 2){
-                                kal.set(jahr, monat, tag, 6, 30)
+                                kal.set(jahr, monat, tag, 7, 0)
                                 ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                                kal.set(jahr, monat, tag, 11, 30)
+                                kal.set(jahr, monat, tag, 13, 0)
                                 ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
                                 startActivity(ev)
-                            }
-                            else {
-                                //Beginn der normalen Frühschicht
-                                kal.set(jahr, monat, tag, 5, 30)
-                                ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
+                            }else
+                                if (wochenTag == 4){
+                                    kal.set(jahr, monat, tag, 6, 0)
+                                    ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                                kal.set(jahr, monat, tag, 11, 30)
-                                ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
+                                    kal.set(jahr, monat, tag, 12, 0)
+                                    ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
-                                startActivity(ev)
-                            }
+                                    startActivity(ev)
+                                }
+                                else {
+                                    //Beginn der normalen Frühschicht
+                                    kal.set(jahr, monat, tag, 6, 0)
+                                    ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
+
+                                    kal.set(jahr, monat, tag, 13, 0)
+                                    ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
+
+                                    startActivity(ev)
+                                }
 
                         }
                         getString(spaet) -> {
 
-                            kal.set(jahr, monat, tag, 11, 30)
-                            ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
+                            if (wochenTag == 4) {
+                                kal.set(jahr, monat, tag, 12, 0)
+                                ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                            kal.set(jahr, monat, tag, 19, 30)
-                            ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
+                                kal.set(jahr, monat, tag, 20, 0)
+                                ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
-                            startActivity(ev)
+                                startActivity(ev)
+                            }
+                            else{
+                                kal.set(jahr, monat, tag, 13, 0)
+                                ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
+
+                                kal.set(jahr, monat, tag, 20, 0)
+                                ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
+
+                                startActivity(ev)
+                            }
 
                         }
                         getString(nacht) -> {
                             if (wochenTag == 7){
-                                kal.set(jahr, monat, tag, 19, 30)
+                                kal.set(jahr, monat, tag, 20, 0)
                                 ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                                kal.set(jahr, monat, tag + 1, 6, 30)
+                                kal.set(jahr, monat, tag + 1, 7, 0)
                                 ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
                                 startActivity(ev)
                             }
                             else {
-                                kal.set(jahr, monat, tag, 19, 30)
+                                kal.set(jahr, monat, tag, 20, 0)
                                 ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                                kal.set(jahr, monat, tag + 1, 5, 30)
+                                kal.set(jahr, monat, tag + 1, 6, 0)
                                 ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
                                 startActivity(ev)
@@ -535,45 +597,24 @@ class MainActivity : AppCompatActivity() {
                             startActivity(ev)
                         }
                         getString(langer_tag) -> {
-                            if (wochenTag == 1) {
-                                kal.set(jahr, monat, tag, 6, 30)
+
+                                kal.set(jahr, monat, tag, 7, 0)
                                 ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                                kal.set(jahr, monat, tag, 18, 30)
+                                kal.set(jahr, monat, tag, 19, 0)
                                 ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
                                 startActivity(ev)
-                            }
-                            else{
-                                kal.set(jahr, monat, tag, 5, 30)
-                                ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
-
-                                kal.set(jahr, monat, tag, 17, 30)
-                                ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
-
-                                startActivity(ev)
-                            }
                         }
                         getString(lange_nacht) -> {
-                            if (wochenTag == 1){
-                                kal.set(jahr, monat, tag, 18, 30)
+
+                                kal.set(jahr, monat, tag, 19, 0)
                                 ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
 
-                                kal.set(jahr, monat, tag + 1, 6, 30)
+                                kal.set(jahr, monat, tag + 1, 7, 0)
                                 ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
 
                                 startActivity(ev)
-                            }
-                            else {
-                                //Beginn der normalen Frühschicht
-                                kal.set(jahr, monat, tag, 17, 30)
-                                ev.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, kal.time.time)
-
-                                kal.set(jahr, monat, tag + 1, 5, 30)
-                                ev.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, kal.time.time)
-
-                                startActivity(ev)
-                            }
                         }
                         else -> Toast.makeText(this, getString(error), Toast.LENGTH_LONG).show()
                     }
